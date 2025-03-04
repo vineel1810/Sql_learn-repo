@@ -1,0 +1,225 @@
+Exercise 1: Create a function in Python
+Exercise 2: Create a function with variable length of arguments
+Exercise 3: Return multiple values from a function
+Exercise 4: Create a function with a default argument
+Exercise 5: Create an inner function to calculate the addition in the following way
+Exercise 6: Create a recursive function
+Exercise 7: Assign a different name to function and call it through the new name
+Exercise 8: Generate a Python list of all the even numbers between 4 to 30
+Exercise 9: Find the largest item from a given list
+==============================================================================================================================================================================================================================
+Exercise 1: Create a function in Python
+
+Write a program to create a function that takes two arguments, name and age, and print their value.
+
+Hint
+Use the def keyword with the function name to define a function.
+Next, take two parameters
+Print them using the print() function
+Call function by passing name and age.
+Show Solution
+# demo is the function name
+def demo(name, age):
+    # print value
+    print(name, age)
+
+# call function
+demo("Mainak", 25)
+================================================================================================================================================================================================================================= 
+Exercise 2: Create a function with variable length of arguments
+Write a program to create function func1() to accept a variable length of arguments and print their value.
+
+Note: Create a function in such a way that we can pass any number of arguments to this function, and the function should process them and display each argument’s value.
+
+Read: variable length of arguments in functions
+
+Function call:
+
+# call function with 3 arguments
+func1(20, 40, 60)
+
+# call function with 2 arguments
+func1(80, 100)
+Expected Output:
+
+Printing values
+20
+40
+60
+
+
+Printing values
+80
+100
+Hint
+To accept a variable length of positional arguments, i.e., To create functions that take n number of positional arguments we use *args as a parameter. (prefix a parameter name with an asterisk * ).
+
+Using this, we can pass any number of arguments to this function. Internally all these values are represented in the form of a tuple.
+
+Show Solution
+def func1(*args):
+    for i in args:
+        print(i)
+
+func1(20, 40, 60)
+func1(80, 100)
+
+==============================================================================================================================================================================================================================
+Exercise 3: Return multiple values from a function
+Write a program to create function calculation() such that it can accept two variables and calculate addition and subtraction. Also, it must return both addition and subtraction in a single return call.
+
+Given:
+
+def calculation(a, b):
+    # Your Code
+
+res = calculation(40, 10)
+print(res)
+Expected Output
+
+50, 30
+Expected Output:
+
+Hint
+Separate return values with a comma.
+
+Show Solution
+In Python, to return multiple values from a function, use a comma to separate them.
+
+Solution 1:
+
+def calculation(a, b):
+    addition = a + b
+    subtraction = a - b
+    # return multiple values separated by comma
+    return addition, subtraction
+
+# get result in tuple format
+res = calculation(40, 10)
+print(res)
+ 
+Solution 2:
+
+def calculation(a, b):
+    return a + b, a - b
+
+# get result in tuple format
+# unpack tuple
+add, sub = calculation(40, 10)
+print(add, sub)
+ 
+Exercise 4: Create a function with a default argument
+Write a program to create a function show_employee() using the following conditions.
+
+It should accept the employee’s name and salary and display both.
+If the salary is missing in the function call then assign default value 9000 to salary
+See: Default arguments in function
+
+Given:
+
+showEmployee("Mainak", 12000)
+showEmployee("Jessa")
+Expected output:
+
+Name: Mainak salary: 12000
+Name: Jessa salary: 9000
+Hint
+Default arguments take the default value during the function call if we do not pass them. We can assign a default value to an argument in function definition using the = assignment operator.
+
+Show Solution
+# function with default argument
+def show_employee(name, salary=9000):
+    print("Name:", name, "salary:", salary)
+
+show_employee("Mainak", 12000)
+show_employee("Jessa")
+ 
+Exercise 5: Create an inner function to calculate the addition in the following way
+Create an outer function that will accept two parameters, a and b
+Create an inner function inside an outer function that will calculate the addition of a and b
+At last, an outer function will add 5 into addition and return it
+Show Solution
+In Python, we can create a nested function inside a function. We can use the nested function to perform complex tasks multiple times within another function or avoid loop and code duplication.
+
+# outer function
+def outer_fun(a, b):
+    square = a ** 2
+
+    # inner function
+    def addition(a, b):
+        return a + b
+
+    # call inner function from outer function
+    add = addition(a, b)
+    # add 5 to the result
+    return add + 5
+
+result = outer_fun(5, 10)
+print(result)
+ 
+Exercise 6: Create a recursive function
+Write a program to create a recursive function to calculate the sum of numbers from 0 to 10.
+
+A recursive function is a function that calls itself again and again.
+
+Expected Output:
+
+55
+
+Show Solution
+def addition(num):
+    if num:
+        # call same function by reducing number by 1
+        return num + addition(num - 1)
+    else:
+        return 0
+
+res = addition(10)
+print(res)
+ 
+Exercise 7: Assign a different name to function and call it through the new name
+Below is the function display_student(name, age). Assign a new name show_tudent(name, age) to it and call it using the new name.
+
+Given:
+
+def display_student(name, age):
+    print(name, age)
+
+display_student("John", 26)
+You should be able to call the same function using
+
+show_student(name, age)
+Hint
+Assign a different name to function using the assignment (=) operator.
+
+fun_name = new_name
+
+Show Solution
+def display_student(name, age):
+    print(name, age)
+
+# call using original name
+display_student("John", 26)
+
+# assign new name
+showStudent = display_student
+# call using new name
+showStudent("John", 26)
+ 
+Exercise 8: Generate a Python list of all the even numbers between 4 to 30
+Expected Output:
+
+[4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+Hint
+Use the built-in function range() to generate the sequence of numbers between the given start number to the stop number with a step = 2 to get even numbers.
+pass range() function to a list constructor to create a list
+Show Solution
+print(list(range(4, 30, 2)))
+ 
+Exercise 9: Find the largest item from a given list
+x = [4, 6, 8, 24, 12, 2]
+Expected Output:
+
+24
+Hint
+Use the built-in function max() to get the largest number from a list
