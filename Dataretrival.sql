@@ -5,4 +5,4 @@ create table emp;
 
 
 
-select * from company where empid=123;
+select * from company where empid=124;
