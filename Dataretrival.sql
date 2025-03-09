@@ -7,3 +7,4 @@ select * from employees limit 10;
 
 select * from company where empid=124;
 
+select * from company;
